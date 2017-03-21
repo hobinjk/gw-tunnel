@@ -2,7 +2,7 @@
 
 ## Actors
 
-The system relies on 4 entities:
+The system relies on 5 entities:
 * A DNS server which is authoritative and only resolves $name.box.$domain names.
 * A registration server, keeping track of the known boxes and their local IPs.
 * A tunnel server ('frontend' in pagekite terms)
