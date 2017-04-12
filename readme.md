@@ -13,12 +13,20 @@ The system relies on 5 entities:
 
 ## Initial registration
 
-1. The registration client chooses a friendly name, used to build the public gateway URL
+1. The registration client notifies the registration server that it will own a subdomain name
+   which matches the MAC address of the gateway.
+2. The registration client starts the LE DNS challenge for the MAC endpoint, cooperating with
+   the registration server to configure the DNS server TXT record appropriately.
+3. Once the LE challenge succeeds, the registration client and server set up the MAC tunnel.
+4. The user navigates to http://mozbox.local and is redirected to https://$MAC.box.knilxof.org to
+   complete the next steps.
+5. The registration client chooses a friendly name, used to build the public gateway URL
    (eg. fabrice.box.knilxof.org). It tries names until the registration server
    returns success and a unique token associated to this name.
-2. The registration client initiates the LE DNS challenge, cooperating with the registration
-   server to configure the DNS server field appropriately.
-3. Once the LE challenge succeeds, the registration client and server set up the tunnel.
+6. The registration client initiates the LE DNS challenge, cooperating with the registration
+   server to configure the DNS server TXT record appropriately.
+7. Once the LE challenge succeeds, the registration client and server set up the tunnel and the
+   browser is redirected to https://$FRIENDLY_NAME.knilxof.org/.
 
 ## Normal operation mode
 
